@@ -1,4 +1,6 @@
+import 'package:demo_cubit/ui/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:demo_cubit/ui/MenuLateral.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Menu principal"),
       ),
+      drawer: const MenuLateral(),
       body: Center(
         child: // Build menu with icons
             Column(
@@ -36,7 +39,9 @@ class _HomePageState extends State<HomePage> {
                 child: const Text("Mis facturas")),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                      (Route<dynamic> route) => false);
                 },
                 child: const Text("Salir")),
           ],
@@ -45,3 +50,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
+
