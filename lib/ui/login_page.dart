@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               } else if (state.status == PageStatus.success &&
                   state.loginSuccess) {
                 Navigator.pop(ctx3); // quito el dialog
-                Navigator.pushNamed(ctx3, '/home');
+                Navigator.pushReplacementNamed(ctx3, '/home');
               } else {
                 Navigator.pop(ctx3); // quito el dialog
                 _showDialog(context, "Error", state.errorMessage!, true);
