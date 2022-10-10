@@ -1,7 +1,6 @@
-// ignore: unnecessary_import
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/material.dart';
 
 class MenuLateral extends StatefulWidget {
   const MenuLateral({Key? key}) : super(key: key);
@@ -16,22 +15,46 @@ class _MenuLateralState extends State<MenuLateral>{
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: const <Widget>[
+        children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              image: DecorationImage(
+                image: NetworkImage("https://thumbs.dreamstime.com/b/icono-del-var%C3%B3n-del-usuario-ninguna-cara-43652345.jpg"),
+              fit: BoxFit.scaleDown,
+              ),
+              shape: BoxShape.circle,
+              // ignore: prefer_const_literals_to_create_immutables
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(5.0, 5.0),
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ),
+              ],
             ),
             child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+              ''
             ),
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.all(0),
+          ),
+          Text('Usuario', 
+            style: TextStyle(fontSize: 24, 
+            color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
           ),
           ListTile(
-            leading: Icon(Icons.new_releases),
+            leading: Icon(Icons.home),
             title: Text('Nuevo Pedido'),
+            onTap: () {
+              Navigator.pushNamed(context, '/home');
+            },
           ),
           ListTile(
             leading: Icon(Icons.history),
